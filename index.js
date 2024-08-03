@@ -9,7 +9,7 @@ const productRoutes = require('./routes/productRoutes');
 const path = require('path')
 const app = express();
 
-const port = 4000;
+const port = process.env.port || 4000;
 
 dotenv.config();
 
@@ -24,7 +24,7 @@ app.use('/firm',firmRoutes)
 app.use('/product',productRoutes);
 app.use('/uploads',express.static('uploads'));
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.send("<h1>Welcome to SUBY</h1>");
 });
 
